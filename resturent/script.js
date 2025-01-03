@@ -104,25 +104,34 @@ window.addEventListener('resize', () => {
   }
   }
 });
-/*
-function updateBackgroundColor() {
-  const items = document.getElementsByClassName('drink_item');
+function updateDisplayStyle() {
   const screenWidth = window.innerWidth;
+  const items = document.getElementsByClassName('drink_item');
 
-   if (screenWidth <= 720 ) { 
-  for (let i = 0; i < items.length; i++) {
-    items[i].style.display='inline';
-  }
+  if (screenWidth < 768) { 
+      for (let i = 0; i < items.length; i++) {
+          items[i].style.display = 'inline-block';
+      }
   } else {
       for (let i = 0; i < items.length; i++) {
-    items[i].style.display='grid';
+          items[i].style.display = 'grid'; 
+      }
   }
+}
+const items = document.getElementsByClassName('drink_item');
+if(screenWidth<=720){
+for (let i = 0; i < items.length; i++) {
+  items[i].style.display = 'none';
+}
+}
+else{
+  for (let i = 0; i < items.length; i++) {
+    items[i].style.display = 'none';
   }
 }
 
-// Call the function immediately when the page loads to set the initial state
+const button = document.getElementsByClassName('btn_drink')[0];
+button.addEventListener('click', updateDisplayStyle);
 
-
-// Add the event listener for the resize event
-
-*/
+window.addEventListener('resize', updateDisplayStyle);
+window.addEventListener('orientationchange', updateDisplayStyle);
