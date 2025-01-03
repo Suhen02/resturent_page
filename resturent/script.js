@@ -104,6 +104,8 @@ window.addEventListener('resize', () => {
   }
   }
 });
+const items = document.getElementsByClassName('drink_item');
+items.style.display='none';
 function updateDisplayStyle() {
   const screenWidth = window.innerWidth;
   const items = document.getElementsByClassName('drink_item');
@@ -118,8 +120,8 @@ function updateDisplayStyle() {
       }
   }
 }
-const items = document.getElementsByClassName('drink_item');
-if(screenWidth<=720){
+
+/*if(screenWidth<=720){
 for (let i = 0; i < items.length; i++) {
   items[i].style.display = 'none';
 }
@@ -128,7 +130,7 @@ else{
   for (let i = 0; i < items.length; i++) {
     items[i].style.display = 'none';
   }
-}
+}*/
 
 const button = document.getElementsByClassName('btn_drink')[0];
 button.addEventListener('click', updateDisplayStyle);
